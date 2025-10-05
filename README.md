@@ -1,11 +1,11 @@
-# 🧠 Principles of Compilation – Final Project
+# Principles of Compilation – Final Project
 
 This repository contains my final project for the **Principles of Compilation** course.  
 The project implements a **Scheme-to-Assembly compiler**, written in **OCaml**, with supporting assembly routines for runtime operations.
 
 ---
 
-## 📘 Overview
+## Overview
 
 The compiler translates a subset of the Scheme programming language into x86 Assembly.  
 It includes code generation, primitive procedure support, and runtime handling through assembly-level implementations.
@@ -14,7 +14,7 @@ The project builds upon the assignments from previous stages of the course and c
 
 ---
 
-## 🧩 Project Structure
+## Project Structure
 
 | File | Description |
 |------|--------------|
@@ -28,44 +28,55 @@ The project builds upon the assignments from previous stages of the course and c
 
 ---
 
-## ⚙️ How to Build and Run
+## How to Build and Run
 
 ### 1. Build the Compiler
 To compile and link all components, run:
+
 ```bash
 make
+```
 
 This will generate the executable for the compiler and the necessary runtime assembly.
 
-2. Compile Scheme Code
+---
 
+### 2. Compile Scheme Code
 Use the compiler to translate a Scheme source file:
 
+```bash
 ./compiler <source_file.scm> > output.asm
+```
 
-3. Assemble and Run
+---
 
+### 3. Assemble and Run
 Then assemble and execute:
 
+```bash
 nasm -f elf64 output.asm -o output.o
 gcc -no-pie output.o -o output
 ./output
+```
 
-🧪 Example
+---
 
+### Example
 Example Scheme program:
 
+```scheme
 (define (square x)
   (* x x))
 
 (display (square 5))
-
+```
 
 Compilation steps:
 
+```bash
 ./compiler example.scm > example.asm
 nasm -f elf64 example.asm -o example.o
 gcc -no-pie example.o -o example
 ./example
 # Output: 25
-
+```
