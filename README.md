@@ -34,3 +34,38 @@ The project builds upon the assignments from previous stages of the course and c
 To compile and link all components, run:
 ```bash
 make
+
+This will generate the executable for the compiler and the necessary runtime assembly.
+
+2. Compile Scheme Code
+
+Use the compiler to translate a Scheme source file:
+
+./compiler <source_file.scm> > output.asm
+
+3. Assemble and Run
+
+Then assemble and execute:
+
+nasm -f elf64 output.asm -o output.o
+gcc -no-pie output.o -o output
+./output
+
+🧪 Example
+
+Example Scheme program:
+
+(define (square x)
+  (* x x))
+
+(display (square 5))
+
+
+Compilation steps:
+
+./compiler example.scm > example.asm
+nasm -f elf64 example.asm -o example.o
+gcc -no-pie example.o -o example
+./example
+# Output: 25
+
