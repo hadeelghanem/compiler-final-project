@@ -28,7 +28,7 @@ The project builds upon the assignments from previous stages of the course and c
 
 ---
 
-## How to Build and Run
+## ▶️ How to Build and Run
 
 ### 1. Build the Compiler
 To compile and link all components, run:
